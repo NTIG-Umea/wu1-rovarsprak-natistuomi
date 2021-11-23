@@ -23,8 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const translate = (text) => {
     // översätt texten till rövarspråket
+
+    let s2 = "";
+    let konsonanter = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz";
+
+
+    for (let i = 0; i < text.length; i++){
+        for (let q = 0; q < 42; q++){
+            if (text.charAt(i) == konsonanter.charAt(q))
+                s2 = s2 + konsonanter.charAt(q) + "o";
+            else if (q == 41)
+                s2 = s2 + text.charAt(i);
+        }
+
+    }
     console.log(text)
-    return text;
+    return s2;
 };
 
 const display = (translation, element) => {
